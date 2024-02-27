@@ -1,47 +1,115 @@
-* hero background image */
-.bgimage {
-    height:100vh;
-    background: url('resources/img/back.png');
-    background-size:cover;
-    position:relative;
-}
-/* text css above hero image*/
-.hero_title {
-    font-size: 4.5rem;
-}
-.hero_desc {
-    font-size: 2rem;
-}
-.hero-text {
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-}
-
-/* about section image css */
-.imageAboutPage {
-    width: 100%;
-}
-
-/* services section css */
-.servicesText.card {
-    height: 280px;
-    cursor: pointer;
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-.servicesIcon {
-    font-size: 36px;
-    text-align: center;
-    width: 100%;
-}
-.card-title {
-    text-align: center;
-}
-.card:hover .servicesIcon {
-    color: #008000;
-}
-.servicesText:hover {
-    border: 1px solid #008000;
-}
+  
+  body {
+    font-family:'Times New Roman', Times, serif;
+  }
+  
+  header {
+    padding: 20px;
+    background: linear-gradient(to left, #3498db, #9b59b6, #e74c3c, #f39c12, #2ecc71, #1abc9c, #9b59b6, #e74c3c, #f39c12, #2ecc71, #3498db, #f1c40f, #e67e22, #8e44ad, #16a085, #27ae60, #2980b9, #c0392b, #f39c12); /* Colorful gradient */
+    background-size: 200% auto;
+    animation: moveColors 10s linear infinite; /* Continuous color-changing animation */
+  }
+  
+  @keyframes moveColors {
+    0% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: 0% 0;
+    }
+  }
+  
+  nav ul {
+    list-style-type: none;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out; /* Smooth transition */
+  }
+  
+  nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+  }
+  
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    color: #2c3e50; /* Dark blue */
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    color: #34495e; /* Dark gray */
+    font-size: 1.2em;
+  }
+  
+  
+  
+  .container {
+    text-align: center; /* Center content inside container */
+  }
+  
+  .container h1,
+  .container p {
+    color: #111111; /* White text color */
+  }
+  
+  /* Additional properties */
+  .moving-img {
+    position: absolute;
+    bottom: -100%; /* Initially position the image outside the container at the bottom */
+    left: 5%; /* Move the image 5% from the left side */
+    margin-right: 20px; /* Add horizontal space between each image */
+    margin-bottom: 20px; /* Add vertical space between each image */
+    animation: moveUp 5s linear infinite; /* Adjust animation duration as needed */
+  }
+  
+  @keyframes moveUp {
+    0% {
+      bottom: -100%; /* Start position at the bottom */
+    }
+    100% {
+      bottom: 100%; /* End position at the top */
+    }
+  }
+  
+  
+  .container h1,
+  .container p {
+    color: #fff; /* White text color */
+    transition: margin-top 0.3s ease-in-out; /* Smooth transition for margin-top */
+    opacity: 1; /* Initially set opacity to fully visible */
+  }
+  
+  .container h1:hover,
+  .container p:hover {
+    margin-top: -5px; /* Move text 5px upwards when hovered */
+  }
+  
+  .hide {
+    opacity: 0; /* Set opacity to 0 to hide the element */
+    transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
+  }
+  
+  
+  
+  
