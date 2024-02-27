@@ -140,13 +140,18 @@
     margin-top: 50px;
   }
   
-  .square-container img {
+  .original-img {
     width: 100%; /* Make the image fill the container */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove any default inline styles */
-    
+    height: 100%; /* Make the image fill the container */
+    background-image: url(resources/img/backcodegi.png); /* Default image */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+    transition: background-image 0.3s ease; /* Smooth transition effect */
   }
   
+  .square-container:hover .original-img {
+    background-image: url(resources/img/back.png); /* Change the background image on hover */
+  }
   
   
   /* //heading continous colour changing */
@@ -165,4 +170,6 @@
       color: rgb(227, 13, 13); /* End color */
     }
   }
+
+  
   
