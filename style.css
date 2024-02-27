@@ -7,6 +7,14 @@
   
   body {
     font-family:'Times New Roman', Times, serif;
+    background-color: #6b5cf1;
+    margin: 0;
+    padding: 0;
+    background-image: url('resources/img/backcodegi.png'); /* Path to your background image */
+    background-color: rgba(44, 49, 57, 0.5); /* Transparent white background color */
+    background-blend-mode: overlay; /* Blend the background image with the background color */
+    background-size: cover; /* Cover the entire page with the background image */
+    background-position: center; /* Center the background image */
   }
   
   header {
@@ -109,7 +117,52 @@
     opacity: 0; /* Set opacity to 0 to hide the element */
     transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
   }
+
+  .mainbody h1 {
+    padding-top: 150px;
+    color: floralwhite;
+  }
+  
+  .mainbody small{
+    padding-left: 650px;
+    text-shadow: #fff;
+    color: #fefef9;
+  }
+
+  /* //squre container */
+
+  .square-container {
+    width: 300px; /* Adjust the width and height as needed for your square container */
+    height: 300px;
+    border: 1px solid #000; /* Border for the container */
+    overflow: hidden; /* Ensure the image doesn't overflow */
+    margin-left: 610px;
+    margin-top: 50px;
+  }
+  
+  .square-container img {
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any default inline styles */
+    
+  }
   
   
   
+  /* //heading continous colour changing */
+  .mainbody h1 {
+    animation: changeColor 5s infinite; /* Apply the animation to the headline */
+  }
+  
+  @keyframes changeColor {
+    0% {
+      color: rgb(232, 211, 211); /* Start color */
+    }
+    50% {
+      color: rgb(5, 251, 5); /* Middle color */
+    }
+    100% {
+      color: rgb(227, 13, 13); /* End color */
+    }
+  }
   

@@ -1,0 +1,16 @@
+.continuous-color {
+    animation: changeColor 5s infinite; /* Apply the animation to the headline */
+  }
+  
+  @keyframes changeColor {
+    0% {
+      color: red; /* Start color */
+    }
+    50% {
+      color: blue; /* Middle color */
+    }
+    100% {
+      color: green; /* End color */
+    }
+  }
+  
