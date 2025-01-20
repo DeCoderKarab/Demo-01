@@ -151,6 +151,7 @@
                 messageElement.textContent = `${playerXName}'s turn`;
                 saveGameStateToLocalStorage();
                 createBoard();
+                updateUrlWithGameState();
             } else {
                 alert('Please enter both player names');
             }
@@ -186,6 +187,7 @@
 
             gameBoard[cellIndex] = currentPlayer;
             saveGameStateToLocalStorage();
+            updateUrlWithGameState();
 
             if (checkWinner()) {
                 gameActive = false;
@@ -197,6 +199,7 @@
             } else {
                 currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
                 saveGameStateToLocalStorage();
+                updateUrlWithGameState();
                 messageElement.textContent = `${currentPlayer === 'X' ? playerXName : playerOName}'s turn`;
             }
         }
@@ -265,10 +268,44 @@
                 cell.classList.remove('taken');
             });
             saveGameStateToLocalStorage();
+            updateUrlWithGameState();
+        }
+
+        // Update the URL with game state
+        function updateUrlWithGameState() {
+            const gameState = {
+                gameBoard: gameBoard,
+                currentPlayer: currentPlayer,
+                gameActive: gameActive,
+                scoreX: scoreX,
+                scoreO: scoreO
+            };
+            const gameStateString = encodeURIComponent(JSON.stringify(gameState));
+            const newUrl = window.location.href.split('?')[0] + '?gameState=' + gameStateString;
+            window.history.replaceState({}, '', newUrl);
+        }
+
+        // Load the game state from URL if it exists
+        function loadGameStateFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const gameStateParam = urlParams.get('gameState');
+            if (gameStateParam) {
+                const gameState = JSON.parse(decodeURIComponent(gameStateParam));
+                gameBoard = gameState.gameBoard;
+                currentPlayer = gameState.currentPlayer;
+                gameActive = gameState.gameActive;
+                scoreX = gameState.scoreX;
+                scoreO = gameState.scoreO;
+                renderBoard();
+                updateGameStatus();
+            }
         }
 
         // Initialize game when the page is loaded
-        window.onload = loadGameStateFromLocalStorage;
+        window.onload = function() {
+            loadGameStateFromLocalStorage();
+            loadGameStateFromUrl();
+        };
 
     </script>
 </body>
