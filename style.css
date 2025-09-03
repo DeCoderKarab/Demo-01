@@ -1,175 +1,349 @@
-/* Reset default styles */
+/* Reset & Base */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family:'Times New Roman', Times, serif;
-    background-color: #6b5cf1;
-    margin: 0;
-    padding: 0;
-    background-image: url('resources/img/backcodegi.png'); /* Path to your background image */
-    background-color: rgba(44, 49, 57, 0.5); /* Transparent white background color */
-    background-blend-mode: overlay; /* Blend the background image with the background color */
-    background-size: cover; /* Cover the entire page with the background image */
-    background-position: center; /* Center the background image */
-  }
-  
-  header {
-    padding: 20px;
-    background: linear-gradient(to left, #3498db, #9b59b6, #e74c3c, #f39c12, #2ecc71, #1abc9c, #9b59b6, #e74c3c, #f39c12, #2ecc71, #3498db, #f1c40f, #e67e22, #8e44ad, #16a085, #27ae60, #2980b9, #c0392b, #f39c12); /* Colorful gradient */
-    background-size: 200% auto;
-    animation: moveColors 10s linear infinite; /* Continuous color-changing animation */
-  }
-  
-  @keyframes moveColors {
-    0% {
-      background-position: 100% 0;
-    }
-    100% {
-      background-position: 0% 0;
-    }
-  }
-  
-  nav ul {
-    list-style-type: none;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin-right: 20px;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease-in-out; /* Smooth transition */
-  }
-  
-  nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
-  }
-  
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-  }
-  
-  h1 {
-    color: #2c3e50; /* Dark blue */
-    font-size: 3em;
-    margin-bottom: 20px;
-  }
-  
-  p {
-    color: #34495e; /* Dark gray */
-    font-size: 1.2em;
-  }
-  
-  
-  
-  .container {
-    text-align: center; /* Center content inside container */
-  }
-  
-  .container h1,
-  .container p {
-    color: #111111; /* White text color */
-  }
-  
-  /* Additional properties */
-  .moving-img {
-    position: absolute;
-    bottom: -100%; /* Initially position the image outside the container at the bottom */
-    left: 5%; /* Move the image 5% from the left side */
-    margin-right: 20px; /* Add horizontal space between each image */
-    margin-bottom: 20px; /* Add vertical space between each image */
-    animation: moveUp 5s linear infinite; /* Adjust animation duration as needed */
-  }
-  
-  @keyframes moveUp {
-    0% {
-      bottom: -100%; /* Start position at the bottom */
-    }
-    100% {
-      bottom: 100%; /* End position at the top */
-    }
-  }
-  
-  
-  .container h1,
-  .container p {
-    color: #fff; /* White text color */
-    transition: margin-top 0.3s ease-in-out; /* Smooth transition for margin-top */
-    opacity: 1; /* Initially set opacity to fully visible */
-  }
-  
-  .container h1:hover,
-  .container p:hover {
-    margin-top: -5px; /* Move text 5px upwards when hovered */
-  }
-  
-  .hide {
-    opacity: 0; /* Set opacity to 0 to hide the element */
-    transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .mainbody h1 {
-    padding-top: 150px;
-    color: floralwhite;
-  }
-  
-  .mainbody small{
-    padding-left: 650px;
-    text-shadow: #fff;
-    color: #fefef9;
-  }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f2f4f7;
+  color: #333;
+  padding-bottom: 60px;
+}
 
-  /* //squre container */
+/* Header */
+.mobile-header {
+  background-color: #2f80ed;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-  .square-container {
-    width: 300px; /* Adjust the width and height as needed for your square container */
-    height: 300px;
-    border: 1px solid #000; /* Border for the container */
-    overflow: hidden; /* Ensure the image doesn't overflow */
-    margin-left: 610px;
-    margin-top: 50px;
-  }
-  
-  .original-img {
-    width: 100%; /* Make the image fill the container */
-    height: 100%; /* Make the image fill the container */
-    background-image: url(resources/img/backcodegi.png); /* Default image */
-    background-size: cover; /* Cover the entire container */
-    background-position: center; /* Center the background image */
-    transition: background-image 0.3s ease; /* Smooth transition effect */
-  }
-  
-  .square-container:hover .original-img {
-    background-image: url(resources/img/back.png); /* Change the background image on hover */
-  }
-  
-  
-  /* //heading continous colour changing */
-  .mainbody h1 {
-    animation: changeColor 5s infinite; /* Apply the animation to the headline */
-  }
-  
-  @keyframes changeColor {
-    0% {
-      color: rgb(232, 211, 211); /* Start color */
-    }
-    50% {
-      color: rgb(5, 251, 5); /* Middle color */
-    }
-    100% {
-      color: rgb(227, 13, 13); /* End color */
-    }
-  }
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+}
 
-  
-  
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+/* Overlay for blur background */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 99;
+  display: none;
+}
+
+/* Avatar Popup */
+.avatar-popup {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 15px;
+  width: 200px;
+  text-align: center;
+  display: none;
+  z-index: 101;
+}
+
+.popup-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.switch-btn {
+  margin-top: 10px;
+  background-color: #2f80ed;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.switch-btn:hover {
+  background-color: #2466c0;
+}
+
+/* Tab Bar */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+.tab {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.tab.active {
+  font-weight: bold;
+  color: #2f80ed;
+}
+
+/* Main Area */
+.mobile-main {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: calc(100vh - 120px);
+}
+
+/* Info Card */
+.info-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.info-card h2 {
+  margin-bottom: 10px;
+}
+
+/* Notice Board */
+.notice-board {
+  background: #fffbea;
+  padding: 20px;
+  border-left: 6px solid #f9c74f;
+  border-radius: 10px;
+}
+
+.notice-board h2 {
+  margin-bottom: 10px;
+}
+
+.notice-board ul {
+  list-style: none;
+}
+
+.notice-board li {
+  padding: 6px 0;
+  font-size: 15px;
+}
+
+/* Today tab attendance summary */
+.attendance-summary {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Subjects rack */
+.subjects-rack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.subject-btn {
+  background-color: #2f80ed;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  flex: 1 1 40%;
+  max-width: 45%;
+  box-shadow: 0 3px 6px rgba(47, 128, 237, 0.5);
+  transition: background-color 0.2s ease;
+}
+
+.subject-btn:hover {
+  background-color: #2466c0;
+}
+
+/* Subject Modal */
+.subject-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 320px;
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transform: translate(-50%, -50%);
+  z-index: 102;
+  display: none;
+  flex-direction: column;
+  text-align: center;
+}
+
+.subject-modal.show {
+  display: flex;
+}
+
+.subject-modal h3 {
+  margin-bottom: 15px;
+}
+
+.subject-modal p {
+  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #999;
+}
+
+.close-btn:hover {
+  color: #555;
+}
+
+/* Responsive */
+@media (min-width: 600px) {
+  .mobile-main {
+    max-width: 500px;
+    margin: auto;
+  }
+}
+
+/* Splash Screen */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #2f80ed;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  flex-direction: column;
+}
+
+.splash-logo {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.splash-content p {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+/* Login Screen */
+.login-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #2f80ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  flex-direction: column;
+}
+
+.login-box {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  width: 90%;
+  max-width: 320px;
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  color: #2f80ed;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.login-box button {
+  width: 100%;
+  background-color: #2f80ed;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.login-box button:hover {
+  background-color: #2466c0;
+}
+
+.error-message {
+  color: #ff4444;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Subject Scores List */
+.score-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+.score-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
